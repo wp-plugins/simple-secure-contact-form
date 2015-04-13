@@ -3,7 +3,7 @@ Contributors: eugenyh
 Tags: widget, contact, contacts, contact form, contact form 7, email, form, mail, spam, antispam, multilingual, plugin
 Requires at least: 3.0.1
 Tested up to: 4.1.1
-Stable tag: 0.2
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,9 @@ Have any ideas or suggestions? Please write me - i will try to make them in the 
 2. This is this widget on the website
 
 == Changelog ==
+
+= 0.2.1 =
+* Fixed some security issues
 
 = 0.2 =
 * Added flexible and simple customization for the widget

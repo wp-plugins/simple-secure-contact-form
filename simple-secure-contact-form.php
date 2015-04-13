@@ -4,7 +4,7 @@ Plugin Name: Simple Secure Contact Form
 Plugin URI: http://lp-tricks.com/
 Description: Simple Secure Contact Form display contact form widget in your widget area with "invisible" spam protection. No more spam, no more capcha!
 Tags: widget, contact, contacts, contact form, contact form 7, email, form, mail, spam, antispam, multilingual, plugin
-Version: 0.2
+Version: 0.2.1
 Author: Eugene Holin
 Author URI: http://lp-tricks.com/
 License: GPLv2 or later
@@ -222,7 +222,7 @@ class lptw_contact_form_widget extends WP_Widget {
 		<label for="<?php echo $this->get_field_id( 'show_widget_title' ); ?>"><?php _e( 'Display widget title?', 'lptw_contact_form_domain' ); ?></label></p>
 
         <p><label for="<?php echo $this->get_field_id( 'widget_description' ); ?>"><?php _e( 'Description:', 'lptw_contact_form_domain' ); ?></label>
-		<textarea class="widefat" rows="3" cols="20" id="<?php echo $this->get_field_id('widget_description'); ?>" name="<?php echo $this->get_field_name('widget_description'); ?>"><?php echo $widget_description; ?></textarea></p>
+		<textarea class="widefat" rows="3" cols="20" id="<?php echo $this->get_field_id('widget_description'); ?>" name="<?php echo $this->get_field_name('widget_description'); ?>"><?php echo esc_textarea($widget_description); ?></textarea></p>
         <hr>
 
 		<p><input class="checkbox" type="checkbox" <?php checked( $use_wp_admin_email ); ?> id="<?php echo $this->get_field_id( 'use_wp_admin_email' ); ?>" name="<?php echo $this->get_field_name( 'use_wp_admin_email' ); ?>" data-field="use_wp_admin_email" />
@@ -271,12 +271,7 @@ class lptw_contact_form_widget extends WP_Widget {
    		$instance['custom_email'] = sanitize_email($new_instance['custom_email']);
    		$instance['bcc_email'] = sanitize_email($new_instance['bcc_email']);
 
-		if ( current_user_can('unfiltered_html') ) {
-			$instance['widget_description'] =  $new_instance['widget_description'];
-        }
-		else {
-			$instance['widget_description'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['widget_description']) ) ); // wp_filter_post_kses() expects slashed
-        }
+		$instance['widget_description'] =  sanitize_text_field($new_instance['widget_description']);
 
 		$instance['color_scheme'] = strip_tags($new_instance['color_scheme']);
 

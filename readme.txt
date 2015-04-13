@@ -18,11 +18,16 @@ Better to see once than read a hundred times - see the [live demo](http://demo.l
 **Languages:** available on English and Russian. If you want to translate this plugin to your language, please contact me - I will be very grateful!
 
 **Contributing**
+
 You can make suggestions and submit your own modifications to this plugin on [Github](https://github.com/eholin/WP-Simple-Secure-Contact-Form).
 
 For more information and support, please visit [my website](http://lp-tricks.com).
 
 Have any ideas or suggestions? Please write me - i will try to make them in the new version of the plugin.
+
+**Contributors**
+
+Thank a lot to Khavish Anshudass Bhundoo for some security issues!
 
 == Installation ==
 
